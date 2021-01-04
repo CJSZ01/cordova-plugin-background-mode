@@ -175,6 +175,10 @@ NSString* const kAPPBackgroundEventDeactivate = @"deactivate";
     [session setCategory:AVAudioSessionCategoryPlayback
                    error:NULL];
 
+    // Fix for the iOS bug that stops background media. By github user "mehulmodihb"
+    [session setCategory:AVAudioSessionCategoryAmbient
+                   error:NULL];
+
     // Active the audio session
     [session setActive:YES error:NULL];
 };
